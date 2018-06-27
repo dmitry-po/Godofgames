@@ -16,10 +16,13 @@ jump_extra_power = 2
 # 24.04.2018 add <--
 jump_power = 7
 gravity = 0.35
-width = 12
-height = 24
+width = 32
+height = 47
 color = (69, 69, 69)
 color = (255, 255, 255)
+# 2706 add -->
+color = (110, 140, 112)
+# 2706 add <--
 
 
 # add animation -->
@@ -27,6 +30,14 @@ animation_delay = 50
 # 24.04.2018 add -->
 animation_delay_speed = 3
 # 24.04.2018 add <--
+# 2706 replace -->
+animation_right = [
+    ('graphics/hero/hero_r01.png')
+]
+animation_left = [
+    ('graphics/hero/hero_l01.png')
+]
+'''
 animation_right = [
     ('graphics/hero/r1.png'),
     ('graphics/hero/r2.png'),
@@ -38,6 +49,8 @@ animation_right = [
 animation_left = [
     ('graphics/hero/l1.png')
 ]
+'''
+# 2706 replace <--
 animation_stay = [('graphics/hero/0.png', animation_delay)]
 # add animation <--
 
