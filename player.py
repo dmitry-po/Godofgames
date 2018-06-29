@@ -51,7 +51,7 @@ animation_left = [
 ]
 '''
 # 2706 replace <--
-animation_stay = [('graphics/hero/0.png', animation_delay)]
+animation_stay = [('graphics/hero/hero_r01.png', animation_delay)]
 # add animation <--
 
 

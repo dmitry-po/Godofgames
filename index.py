@@ -28,8 +28,14 @@ def camera_configure(camera, target_rect):
     l, t = -l + win_width / 2, -t + win_height / 2
 
     l = min(0, l)
+    # 2906 replace -->
+    l = max(-(w-win_width), l)
+    t = max(-(h-win_height), t)
+    '''
     l = max(-(camera.width-win_width), l)
     t = max(-(camera.height-win_height), t)
+    '''
+    # 2906 replace <--
     t = min(0, t)
 
     return Rect(l, t, w, h)
@@ -75,6 +81,8 @@ def main():
     # background -->
     bg = Surface(display)
     bg.fill(background_color)
+    bg_image = image.load('graphics/bg_01.png')
+    bg.blit(bg_image, (0,0))
     # background <--
 
     # 22/05/2018 upd -->
@@ -237,8 +245,13 @@ def main():
             if e.type == KEYUP and e.key == K_LSHIFT:
                 running = False
             # 24.04.2018 add <--
-
+        
+        # 2906 replace -->
+        # new code below
+        '''
         screen.blit(bg, (0, 0))  # background drawing
+        '''
+        # 2906 replace
 
         hero.update(left, right, up, running, platforms)
         # animated_entities.update()
@@ -247,6 +260,9 @@ def main():
         # 11.04.2018 upd -->
         # 11.04.2018 upd -->
         camera.update(hero)
+        # 2906 replace -->
+        screen.blit(bg_image, camera.apply(bg))
+        # 2906 replace
         for e in entities:
             if isinstance(e, blocks.DeathMovingSaw):
                 e.get_move()
