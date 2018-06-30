@@ -12,5 +12,5 @@ class Camera(object):
     def apply(self, target):
         return target.rect.move(self.state.topleft)
 
-    def update(self, target):
-        self.state = self.camera_func(self.state, target.rect)
+    def update(self, target, bg=False):
+        self.state = self.camera_func(self.state, target.rect, bg)

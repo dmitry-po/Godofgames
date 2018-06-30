@@ -21,8 +21,18 @@ platforms = []
 # animated_entities = pygame.sprite.Group()
 # 22/05/2018 <--
 
+# 30/06/2018 add -->
+class Background(sprite.Sprite):
+    def __init__(self, x, y):
+        w, h = 5274,2000
+        sprite.Sprite.__init__(self)
+        self.image = Surface((w, h))
+        self.image = image.load('graphics/bg_01.png')
+        self.rect = Rect(x, y, w, h)
+# 30/06/2018 add <--
 
-def camera_configure(camera, target_rect):
+
+def camera_configure(camera, target_rect, bg=False):
     l, t, _, _ = target_rect
     _, _, w, h = camera
     l, t = -l + win_width / 2, -t + win_height / 2
@@ -37,6 +47,11 @@ def camera_configure(camera, target_rect):
     '''
     # 2906 replace <--
     t = min(0, t)
+
+    # 30/06/2018 add -->
+    if bg:
+        l, t = 0.5*l, 0.5*t
+    # 30/06/2018 add <--
 
     return Rect(l, t, w, h)
 
@@ -79,10 +94,15 @@ def main():
     # screen initiation <--
 
     # background -->
-    bg = Surface(display)
-    bg.fill(background_color)
-    bg_image = image.load('graphics/bg_01.png')
-    bg.blit(bg_image, (0,0))
+    moving = True
+    if moving:
+        bg = Background(0,0)
+        screen.blit(bg.image,(0,0))
+    else:
+        bg = Surface(display)
+        bg.fill(background_color)
+        bg_image = image.load('graphics/bg_01.png')
+        bg.blit(bg_image, (0,0))
     # background <--
 
     # 22/05/2018 upd -->
@@ -219,7 +239,9 @@ def main():
     total_level_width = len(level[0])*platform_width
     total_level_height = len(level)*platform_height
     camera = Camera(camera_configure, total_level_width, total_level_height)
-
+    # -->
+    camera2 = Camera(camera_configure, total_level_width, total_level_height)
+    # <--
 
     while 1:
         timer.tick(60)
@@ -261,7 +283,11 @@ def main():
         # 11.04.2018 upd -->
         camera.update(hero)
         # 2906 replace -->
-        screen.blit(bg_image, camera.apply(bg))
+        if moving:
+            camera2.update(hero, bg=True)
+            screen.blit(bg.image, camera2.apply(bg))
+        else:
+            screen.blit(bg_image, (0, 0))  # background drawing
         # 2906 replace
         for e in entities:
             if isinstance(e, blocks.DeathMovingSaw):
