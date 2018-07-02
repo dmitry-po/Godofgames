@@ -27,31 +27,20 @@ class Background(sprite.Sprite):
         w, h = 5274,2000
         sprite.Sprite.__init__(self)
         self.image = Surface((w, h))
-        self.image = image.load('graphics/bg_01.png')
+        self.image = image.load('graphics/bg_m.png')
         self.rect = Rect(x, y, w, h)
 # 30/06/2018 add <--
 
 
-def camera_configure(camera, target_rect, bg=False):
+def camera_configure(camera, target_rect):
     l, t, _, _ = target_rect
     _, _, w, h = camera
     l, t = -l + win_width / 2, -t + win_height / 2
 
     l = min(0, l)
-    # 2906 replace -->
     l = max(-(w-win_width), l)
     t = max(-(h-win_height), t)
-    '''
-    l = max(-(camera.width-win_width), l)
-    t = max(-(camera.height-win_height), t)
-    '''
-    # 2906 replace <--
     t = min(0, t)
-
-    # 30/06/2018 add -->
-    if bg:
-        l, t = 0.5*l, 0.5*t
-    # 30/06/2018 add <--
 
     return Rect(l, t, w, h)
 
@@ -59,7 +48,7 @@ def camera_configure(camera, target_rect, bg=False):
 # 22/05/2018 -->
 def load_level():
     global player_x, player_y
-    level_file = open('levels/level_00.lvl')
+    level_file = open('levels/level_01.lvl')
     line = " "
     commands = []
     while line[0] != "/":
@@ -98,6 +87,8 @@ def main():
     if moving:
         bg = Background(0,0)
         screen.blit(bg.image,(0,0))
+        bg_t = Background(0,0)
+        bg_t.image = image.load('graphics/bg_t.png')
     else:
         bg = Surface(display)
         bg.fill(background_color)
@@ -239,9 +230,6 @@ def main():
     total_level_width = len(level[0])*platform_width
     total_level_height = len(level)*platform_height
     camera = Camera(camera_configure, total_level_width, total_level_height)
-    # -->
-    camera2 = Camera(camera_configure, total_level_width, total_level_height)
-    # <--
 
     while 1:
         timer.tick(60)
@@ -284,8 +272,8 @@ def main():
         camera.update(hero)
         # 2906 replace -->
         if moving:
-            camera2.update(hero, bg=True)
-            screen.blit(bg.image, camera2.apply(bg))
+            screen.blit(bg.image, camera.apply(bg, smooth=0.5))
+            screen.blit(bg_t.image, camera.apply(bg_t, smooth=0.7))
         else:
             screen.blit(bg_image, (0, 0))  # background drawing
         # 2906 replace
