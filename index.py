@@ -6,6 +6,9 @@ from pygame import *
 from player import *
 from blocks import *
 from camera import *
+# 05/07/18 -->
+from enemy import *
+# 05/07/18 <--
 
 # screen variables -->
 win_width = 880
@@ -24,10 +27,10 @@ platforms = []
 # 30/06/2018 add -->
 class Background(sprite.Sprite):
     def __init__(self, x, y):
-        w, h = 5274,2000
+        w, h = 36,10
         sprite.Sprite.__init__(self)
         self.image = Surface((w, h))
-        self.image = image.load('graphics/bg_m.png')
+        self.image = image.load('graphics/bg_j_bg.png')
         self.rect = Rect(x, y, w, h)
 # 30/06/2018 add <--
 
@@ -79,7 +82,7 @@ def main():
     # screen initiation -->
     pygame.init()
     screen = pygame.display.set_mode(display)
-    pygame.display.set_caption('SMB')
+    pygame.display.set_caption('God of games')
     # screen initiation <--
 
     # background -->
@@ -87,8 +90,12 @@ def main():
     if moving:
         bg = Background(0,0)
         screen.blit(bg.image,(0,0))
-        bg_t = Background(0,0)
-        bg_t.image = image.load('graphics/bg_t.png')
+        bg_m = Background(0,0)
+        bg_m.image = image.load('graphics/bg_j_m.png')
+        bg_c = Background(0,0)
+        bg_c.image = image.load('graphics/bg_j_c.png')
+        bg_g = Background(0,0)
+        bg_g.image = image.load('graphics/bg_j_g.png')
     else:
         bg = Surface(display)
         bg.fill(background_color)
@@ -116,74 +123,6 @@ def main():
     platforms = []
     # animated_entities = pygame.sprite.Group()
     entities.add(hero)
-    '''
-    # 22/05/2018 upd <--
-
-    # 22/05/2018 upd -->
-    '''
-    level = [
-            "--------------",
-            "-            -",
-            "-   ---      -",
-            "-          ---",
-            "--           -",
-            "---   ----   -",
-            "-            -",
-            "-------     --",
-            "-        --  -",
-            "-            -",
-            "-     --     -",
-            "-          ---",
-            "---          -",
-            "--    ----   -",
-            "-            -",
-            "-------     --",
-            "-       ---  -",
-            "--------------",
-        ]
-        level = [
-            "----------------------------------------",
-            "-   -                                  -",
-            "-       -   -            --        -----",
-            "-        - -    - -                    -",
-            "-     -             --         -       -",
-            "-    -           -            -        -",
-            "-            -                -  -     -",
-            "-               -   --                 -",
-            "-          -     --           -       --",
-            "-       --   -                         -",
-            "---            -  -              - -   -",
-            "--         -      -  - -   -          --",
-            "-                               -      -",
-            "-                   -     -       -  - -",
-            "-              -               -       -",
-            "-         -    -            -          -",
-            "-            -                         -",
-            "--       -           -        -  --    -",
-            "-       -       -           -          -",
-            "-         --      -              -     -",
-            "-   -             -      - -          --",
-            "-           -               -          -",
-            "-    -- -     -     -            -     -",
-            "-                     --      -      - -",
-            "-    --     -                       -  -",
-            "-     -       -                        -",
-            "-                      -         -     -",
-            "-      --    -    -                    -",
-            "--              -     -                -",
-            "-- -          -                       --",
-            "-      -    -    -                    --",
-            "-          -   -         -          -  -",
-            "-                       --     -       -",
-            "-     -          - -  -  -       - -   -",
-            "-     -             -         -        -",
-            "-   -      -                        -  -",
-            "-                            -         -",
-            "-                                -    --",
-            "- -     _     -     *      -      -    -",
-            "-   --   -                 -      --   -",
-            "----------------------------------------"
-        ]
     '''
     # 22/05/2018 upd <--
 
@@ -231,8 +170,12 @@ def main():
     total_level_height = len(level)*platform_height
     camera = Camera(camera_configure, total_level_width, total_level_height)
 
+    # 05/07/18 -->
+    enemy = Enemy(50,total_level_height-blocks.platform_height - 95)
+    # 05/07/18 <--
+
     while 1:
-        timer.tick(60)
+        timer.tick(10000)
         for e in pygame.event.get():
             if e.type == QUIT:
                 raise SystemExit
@@ -263,7 +206,7 @@ def main():
         '''
         # 2906 replace
 
-        hero.update(left, right, up, running, platforms)
+        # hero.update(left, right, up, running, platforms)
         # animated_entities.update()
         # for e in moving_platforms:
         #     e.get_move()
@@ -273,14 +216,24 @@ def main():
         # 2906 replace -->
         if moving:
             screen.blit(bg.image, camera.apply(bg, smooth=0.5))
-            screen.blit(bg_t.image, camera.apply(bg_t, smooth=0.7))
+            screen.blit(bg_m.image, camera.apply(bg_m, smooth=0.7))
+            screen.blit(bg_c.image, camera.apply(bg_c, smooth=0.8))
+            screen.blit(bg_g.image, camera.apply(bg_g, smooth=0.9))
         else:
             screen.blit(bg_image, (0, 0))  # background drawing
+        
         # 2906 replace
         for e in entities:
             if isinstance(e, blocks.DeathMovingSaw):
                 e.get_move()
             screen.blit(e.image, camera.apply(e))
+        hero.update(left, right, up, running, platforms)
+
+        # 05/07/18 -->
+        enemy.move()
+        screen.blit(enemy.image, camera.apply(enemy))
+        # 05/07/18 <--
+
         # entities.draw(screen)
         '''
         entities.draw(screen)

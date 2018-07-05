@@ -16,8 +16,8 @@ jump_extra_power = 2
 # 24.04.2018 add <--
 jump_power = 7
 gravity = 0.35
-width = 32
-height = 47
+width = 65
+height = 95
 color = (69, 69, 69)
 color = (255, 255, 255)
 # 2706 add -->
@@ -66,12 +66,14 @@ class Player(sprite.Sprite):
         self.onGround = False
 
         self.image = Surface((width, height))
-        self.image.fill(color)
+        # 05/07/2018 -->
+        # self.image.fill(color)
+        # 05/07/2018 <--
         self.rect = Rect(x, y, width, height)
 
         # animation -->
-        self.image.set_colorkey(color)
-
+        self.image.set_colorkey()
+        
         # 24.04.2018 upd -->
         bolt_anim = []
         bolt_anim_speed = []
@@ -79,8 +81,10 @@ class Player(sprite.Sprite):
             bolt_anim.append((anim, animation_delay))
             bolt_anim_speed.append((anim, animation_delay_speed))
         self.bolt_anim_right = pyganim.PygAnimation(bolt_anim)
+        self.bolt_anim_right.set_alpha()
         self.bolt_anim_right.play()
         self.bolt_anim_right_speed = pyganim.PygAnimation(bolt_anim_speed)
+        self.bolt_anim_right_speed.set_alpha()
         self.bolt_anim_right_speed.play()
         '''
         bolt_anim = []
@@ -98,8 +102,10 @@ class Player(sprite.Sprite):
             bolt_anim.append((anim, animation_delay))
             bolt_anim_speed.append((anim, animation_delay_speed))
         self.bolt_anim_left = pyganim.PygAnimation(bolt_anim)
+        self.bolt_anim_left.set_alpha()
         self.bolt_anim_left.play()
         self.bolt_anim_left_speed = pyganim.PygAnimation(bolt_anim_speed)
+        self.bolt_anim_left_speed.set_alpha()
         self.bolt_anim_left_speed.play()
         '''
         bolt_anim = []
@@ -135,8 +141,10 @@ class Player(sprite.Sprite):
             # 24.04.2018 upd -->
             if running:
                 self.xvel -= move_extra_speed
+                #self.bolt_anim_left_speed.set_y()
                 self.bolt_anim_left_speed.blit(self.image, (0, 0))
             else:
+                #self.bolt_anim_left.set_alpha()
                 self.bolt_anim_left.blit(self.image, (0, 0))
             '''
             self.bolt_anim_left.blit(self.image, (0, 0))
