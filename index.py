@@ -14,7 +14,7 @@ from enemy import *
 win_width = 880
 win_height = 500
 display = (win_width, win_height)
-background_color = (110, 140, 112)
+background_color = (164, 237, 249)
 # screen variables <--
 
 # 22/05/2018 -->
@@ -30,7 +30,7 @@ class Background(sprite.Sprite):
         w, h = 36,10
         sprite.Sprite.__init__(self)
         self.image = Surface((w, h))
-        self.image = image.load('graphics/bg_j_bg.png')
+        self.image = image.load('graphics/bg_j_bg.png').convert()
         self.rect = Rect(x, y, w, h)
 # 30/06/2018 add <--
 
@@ -91,11 +91,11 @@ def main():
         bg = Background(0,0)
         screen.blit(bg.image,(0,0))
         bg_m = Background(0,0)
-        bg_m.image = image.load('graphics/bg_j_m.png')
+        bg_m.image = image.load('graphics/bg_j_m.png').convert()
         bg_c = Background(0,0)
-        bg_c.image = image.load('graphics/bg_j_c.png')
+        bg_c.image = image.load('graphics/bg_j_c.png').convert()
         bg_g = Background(0,0)
-        bg_g.image = image.load('graphics/bg_j_g.png')
+        bg_g.image = image.load('graphics/bg_j_g.png').convert()
     else:
         bg = Surface(display)
         bg.fill(background_color)
@@ -175,7 +175,7 @@ def main():
     # 05/07/18 <--
 
     while 1:
-        timer.tick(10000)
+        timer.tick(100)
         for e in pygame.event.get():
             if e.type == QUIT:
                 raise SystemExit

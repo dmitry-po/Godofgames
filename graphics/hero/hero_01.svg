@@ -18,8 +18,8 @@
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="hero_01.svg"
    inkscape:export-filename="X:\Andy\GodOfGames\graphics\hero\hero_r01.png"
-   inkscape:export-xdpi="128.91429"
-   inkscape:export-ydpi="128.91429">
+   inkscape:export-xdpi="260.57144"
+   inkscape:export-ydpi="260.57144">
   <defs
      id="defs2">
     <inkscape:perspective
@@ -60,10 +60,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="13.925274"
-     inkscape:cx="16.391788"
+     inkscape:cx="2.5680026"
      inkscape:cy="22.177292"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="g2040"
      showgrid="true"
      inkscape:window-width="1920"
      inkscape:window-height="1027"
@@ -83,7 +83,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -106,7 +106,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer12"
-     inkscape:label="bg">
+     inkscape:label="bg"
+     style="display:none">
     <rect
        style="opacity:1;vector-effect:none;fill:#6e8c70;fill-opacity:1;stroke:none;stroke-width:0.85662049;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4718"
@@ -114,6 +115,19 @@
        height="9.260417"
        x="0"
        y="3.4395833" />
+  </g>
+  <g
+     inkscape:label="Копия слоя bg"
+     id="g2040"
+     inkscape:groupmode="layer"
+     style="opacity:0">
+    <rect
+       y="3.4395833"
+       x="0"
+       height="9.260417"
+       width="6.3499994"
+       id="rect2038"
+       style="opacity:1;vector-effect:none;fill:#6e8c70;fill-opacity:1;stroke:none;stroke-width:0.85662049;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
   </g>
   <g
      inkscape:groupmode="layer"
