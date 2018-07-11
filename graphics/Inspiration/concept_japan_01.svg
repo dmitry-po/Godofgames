@@ -17,9 +17,9 @@
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="concept_japan_01.svg"
-   inkscape:export-filename="X:\Andy\GodOfGames\graphics\bg_j_g.png"
-   inkscape:export-xdpi="82"
-   inkscape:export-ydpi="82">
+   inkscape:export-filename="X:\Andy\GodOfGames\graphics\bg_j_c.png"
+   inkscape:export-xdpi="65.582184"
+   inkscape:export-ydpi="65.582184">
   <defs
      id="defs2">
     <linearGradient
@@ -52,10 +52,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.24748737"
-     inkscape:cx="-130.88532"
+     inkscape:cx="-908.70279"
      inkscape:cy="677.24429"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1027"
@@ -89,7 +89,7 @@
        y="-11.30803" />
   </g>
   <g
-     style="display:none;opacity:0"
+     style="display:inline;opacity:0"
      id="g1448"
      inkscape:groupmode="layer"
      inkscape:label="Копия слоя Layer 1">
@@ -105,7 +105,8 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Layer 2"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <path
        style="fill:url(#linearGradient826);fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 139.09524,237.65774 49.1369,-41.2939 39.6875,-55.27902 49.13691,-41.293899 44.97917,-39.404017 32.88392,-14.74107 79.94196,95.250006 100.35268,90.3363"
@@ -117,7 +118,8 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Layer 3"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <path
        style="fill:#fdecd1;fill-opacity:1;stroke:#ebd0a6;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 322.03572,60.386904 -24.29748,27.341054 3.20725,7.750818 -10.69078,21.114294 13.36347,-18.4416 0.53454,-8.018087 10.69078,-2.939962 -1.33636,12.561667 7.48356,9.621702 -7.21628,16.83798 12.2944,-16.57071 -2.93997,-8.81989 5.61266,-2.13816 0.53453,9.6217 5.07813,5.61266 v -6.949 l 7.21629,-0.80181 4.81084,14.16528 11.75986,5.87993 -2.13815,-9.35443 6.94902,-6.1472 -2.67272,-16.837982 5.3454,5.078121 v 9.354431 l 6.94899,10.95805 -3.74176,-12.82893 1.33636,-9.621707 -2.93997,-9.354434 7.21627,-5.078121 6.1472,19.510672 14.69982,9.35444 -1.60361,-10.69079 4.14267,-2.40542 -42.91103,-52.505636 z"
@@ -129,7 +131,8 @@
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Layer 4"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <circle
        style="opacity:1;vector-effect:none;fill:#f87330;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path832"

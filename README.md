@@ -1,1 +1,1 @@
-Hooby project for one my friend-streamer
+Hobby project for one my friend-streamer
