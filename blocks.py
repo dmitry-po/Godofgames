@@ -4,8 +4,8 @@
 from pygame import *
 
 # levels variables -->
-platform_width = 48
-platform_height = 48
+platform_width = 70
+platform_height = 55
 platform = (platform_width, platform_height)
 platform_color = (40, 10, 12)
 color = (255, 255, 255)
@@ -17,10 +17,10 @@ class Platform(sprite.Sprite):
         sprite.Sprite.__init__(self)
         self.image = Surface(platform)
         # 21/05/2018 upd -->
-        self.image.fill(platform_color)
-        '''
+        # self.image.fill(platform_color)
+        # '''
         self.image = image.load('graphics/block.png')
-        '''
+        # '''
         # 21/05/2018 upd <--
         self.rect = Rect(x, y, platform_width, platform_height)
 

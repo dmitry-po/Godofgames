@@ -31,6 +31,7 @@ class Background(sprite.Sprite):
         sprite.Sprite.__init__(self)
         self.image = Surface((w, h))
         self.image = image.load('graphics/bg_j_bg.png').convert()
+        self.image.fill(background_color)
         self.rect = Rect(x, y, w, h)
 # 30/06/2018 add <--
 
@@ -90,12 +91,12 @@ def main():
     if moving:
         bg = Background(0,0)
         screen.blit(bg.image,(0,0))
-        bg_m = Background(0,0)
-        bg_m.image = image.load('graphics/bg_j_m.png').convert()
-        bg_c = Background(0,0)
-        bg_c.image = image.load('graphics/bg_j_c.png').convert()
-        bg_g = Background(0,0)
-        bg_g.image = image.load('graphics/bg_j_g.png').convert()
+        bg_m = Background(500,400)
+        bg_m.image = image.load('graphics/bg_m.png')
+        bg_c = Background(500,700)
+        bg_c.image = image.load('graphics/cloud.png')
+        bg_g = Background(400,900)
+        bg_g.image = image.load('graphics/tree.png')
     else:
         bg = Surface(display)
         bg.fill(background_color)
